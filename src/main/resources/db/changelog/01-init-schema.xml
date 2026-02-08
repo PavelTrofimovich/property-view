@@ -16,23 +16,19 @@
       <column name="description" type="TEXT"/>
       <column name="brand" type="VARCHAR(255)"/>
 
-      <column name="address_house_number" type="INT"/>
-      <column name="address_street" type="VARCHAR(255)"/>
-      <column name="address_city" type="VARCHAR(255)"/>
-      <column name="address_country" type="VARCHAR(255)"/>
-      <column name="address_post_code" type="VARCHAR(20)"/>
+      <column name="house_number" type="VARCHAR(50)"/>
+      <column name="street" type="VARCHAR(255)"/>
+      <column name="city" type="VARCHAR(255)"/>
+      <column name="country" type="VARCHAR(255)"/>
+      <column name="post_code" type="VARCHAR(20)"/>
 
-      <column name="contacts_phone" type="VARCHAR(50)"/>
-      <column name="contacts_email" type="VARCHAR(255)"/>
+      <column name="phone" type="VARCHAR(50)"/>
+      <column name="email" type="VARCHAR(255)"/>
 
-      <column name="arrival_time_check_in" type="VARCHAR(10)">
-        <constraints nullable="false"/>
-      </column>
-      <column name="arrival_time_check_out" type="VARCHAR(10)"/>
+      <column name="check_in" type="TIME"/>
+      <column name="check_out" type="TIME"/>
     </createTable>
-  </changeSet>
 
-  <changeSet id="02-create-amenities-table" author="PavelTrofimovich">
     <createTable tableName="amenities">
       <column name="id" type="BIGINT" autoIncrement="true">
         <constraints primaryKey="true" nullable="false"/>
@@ -41,9 +37,7 @@
         <constraints nullable="false" unique="true"/>
       </column>
     </createTable>
-  </changeSet>
 
-  <changeSet id="03-create-hotel-amenities-link-table" author="PavelTrofimovich">
     <createTable tableName="hotel_amenities">
       <column name="hotel_id" type="BIGINT">
         <constraints nullable="false"/>
@@ -63,4 +57,5 @@
       referencedTableName="amenities" referencedColumnNames="id"
       constraintName="fk_hotel_amenities_amenity"/>
   </changeSet>
+
 </databaseChangeLog>
